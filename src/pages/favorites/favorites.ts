@@ -28,6 +28,17 @@ quotes: Quote[];
   onViewQuote(quote: Quote){
     const modal = this.modalController.create(QuotePage, quote);
     modal.present();
+    modal.onDidDismiss((remove: boolean ) => {
+      console.log(remove);
+      if (remove){
+        this.quotesService.removeQuoteFromFavorites(quote);
+        //this.quotes = this.quotesService.getFavoriteQuotes();
+        const positionQuote = this.quotes.findIndex((quoteElement: Quote) =>{
+         return quoteElement.id == quote.id;
+        });
+        this.quotes.splice(positionQuote,1);
+      }
+    });
   }
 
 }
