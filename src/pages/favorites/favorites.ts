@@ -26,7 +26,7 @@ quotes: Quote[];
   }
 
   onViewQuote(quote: Quote){
-    const modal = this.modalController.create(QuotePage);
+    const modal = this.modalController.create(QuotePage, quote);
     modal.present();
   }
 
