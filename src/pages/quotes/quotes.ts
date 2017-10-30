@@ -29,7 +29,7 @@ quoteGroup: {category: string, quotes: Quote[], icon: string};
   //<ion-title>{{ quoteGroup?.category | uppercase}}</ion-title>
   // }
 
-  onAddFavorite(selectedQuote: Quote){
+  onAddFavorites(selectedQuote: Quote){
     const alert = this.alertController.create({
       title: 'Add Quote',
       subTitle: 'Are you sure?',
@@ -52,4 +52,11 @@ quoteGroup: {category: string, quotes: Quote[], icon: string};
     alert.present();
   }
 
+  onRemoveFromFavorites(quote: Quote){
+    this.quotesService.removeQuoteFromFavorites(quote);
+  }
+
+  isFavorite(quote: Quote){
+    return this.quotesService.isQuoteFavorite(quote);
+  }
 }
