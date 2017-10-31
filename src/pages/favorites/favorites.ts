@@ -31,14 +31,18 @@ quotes: Quote[];
     modal.onDidDismiss((remove: boolean ) => {
       console.log(remove);
       if (remove){
-        this.quotesService.removeQuoteFromFavorites(quote);
-        //this.quotes = this.quotesService.getFavoriteQuotes();
-        const positionQuote = this.quotes.findIndex((quoteElement: Quote) =>{
-         return quoteElement.id == quote.id;
-        });
-        this.quotes.splice(positionQuote,1);
+        this.onRemoveFromFavorites(quote);
       }
     });
+  }
+
+  onRemoveFromFavorites(quote: Quote){
+    this.quotesService.removeQuoteFromFavorites(quote);
+    //this.quotes = this.quotesService.getFavoriteQuotes();
+    const positionQuote = this.quotes.findIndex((quoteElement: Quote) =>{
+     return quoteElement.id == quote.id;
+    });
+    this.quotes.splice(positionQuote,1);
   }
 
 }
