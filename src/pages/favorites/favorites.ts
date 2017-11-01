@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { Quote } from '../../data/quote.interface';
 import { QuotesService } from '../../services/quotes';
+import { SettingsService } from '../../services/settings';
 import { QuotePage } from '../quote/quote';
+
 
 @IonicPage()
 @Component({
@@ -14,7 +16,8 @@ quotes: Quote[];
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private quotesService: QuotesService,
-    private modalController: ModalController) {
+    private modalController: ModalController,
+    private settingsService: SettingsService) {
   }
 
   ionViewWillEnter(){
@@ -43,6 +46,10 @@ quotes: Quote[];
      return quoteElement.id == quote.id;
     });
     this.quotes.splice(positionQuote,1);
+  }
+
+  getBackgroundColor() {
+    return this.settingsService.isAltBackground() ? 'altQuoteBg' : 'quoteBg';
   }
 
 }
