@@ -1,5 +1,5 @@
 # quotesApp
 Ionic + Angular 
 
-#Demo
-simongg.com/ionic/quotesApp
+# Demo
+http://simongg.com/ionic/quotesApp
