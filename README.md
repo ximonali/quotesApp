@@ -2,4 +2,4 @@
 Ionic + Angular 
 
 #Demo
-http://simongg.com/ionic/quotesApp/www/
+simongg.com/ionic/quotesApp
